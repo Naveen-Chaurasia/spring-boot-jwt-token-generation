@@ -65,10 +65,10 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		
 		http.csrf().disable()
-		.authorizeRequests().antMatchers("/helloadmin").permitAll()
+		.authorizeRequests().antMatchers("/helloadmin").hasAnyRole("ADMIN")
 		.antMatchers("/authenticate").permitAll()
 		.antMatchers("/hellouser").hasAnyRole("USER","ADMIN")
-		.antMatchers("/adduser").permitAll().anyRequest().authenticated()
+		.antMatchers("/adduser","/users","/deleteuser","/updateuser").permitAll().anyRequest().authenticated()
 		.and().httpBasic();
 	}
 	}
