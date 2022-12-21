@@ -12,9 +12,7 @@ import com.naveen.models.User;
 public class UserDetailImplimentation implements UserDetails {
 
 	private User user;
-
-
-
+ 
 	public UserDetailImplimentation(User user) {
 		super();
 		this.user = user;
